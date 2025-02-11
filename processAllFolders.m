@@ -9,7 +9,7 @@ folders = {'Na2SO490','NaNO370','NaNO390'};  % Add your folder names here
 numFolders = length(folders);
 
 % Loop through each folder
-for i = 1:5
+for i = 1:3
     % Retrieve the folder and script names
     folders = {'Na2SO490','NaNO370','NaNO390'};
     currentFolder = folders{i};
