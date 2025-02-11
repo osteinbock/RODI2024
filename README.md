@@ -26,7 +26,7 @@ Execution of MATLAB files:
 
 13. moviePredict2.m: This MATLAB script generates a video displaying images along with predicted and true labels (salt type and concentration) for each image based the results saved after executing moviePredict1.m. It processes up to 117 samples, visualizes the results with annotations, and saves the output as a video file (predictionsMLP.mp4). The images are resized and padded to fit a defined figure size, and the script includes conditional color coding for correct or incorrect predictions.
 
-14. overFittingTest.m: This MATLAB script trains a Random Forest model on the z-scored data to predict salt types using a reduced set of metrics based on their correlation. It splits the data into training and testing sets, trains the model with parameters to reduce overfitting, evaluates the model's performance using out-of-bag error and feature importance, and saves the model and results.
+14. overFittingTest.m: This MATLAB script trains a Random Forest model on the z-scored data to predict salt types. It splits the data into training and testing sets, trains the model with parameters aimed at reducing overfitting, evaluates the model's performance using out-of-bag error and feature importance, and saves the model and results. While feature importance is analyzed, this script does not perform explicit feature selection based on correlation.
 
 15. processAllFolders.m: This MATLAB script loops through a list of specified folders, checks if each folder exists, and attempts to run a corresponding script (named after the folder). If the script exists, it is executed; otherwise, a message is displayed. The script ensures that it returns to the original directory after processing each folder.
 
