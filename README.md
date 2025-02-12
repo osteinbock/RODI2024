@@ -33,4 +33,4 @@ Execution of MATLAB files:
 This repository also contains several obj files for 3D printing small components used in the construction of RODI (see SI file provided along with our 2025 paper in Digital discovery for details)
 
 
- 
+Software Versions Used: MATLAB R2022a and R2023a; Python 3.8 with NumPy and XGBoost packages.
