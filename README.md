@@ -30,7 +30,7 @@ Execution of MATLAB files:
 
 15. processAllFolders.m: This MATLAB script loops through a list of specified folders, checks if each folder exists, and attempts to run a corresponding script (named after the folder). If the script exists, it is executed; otherwise, a message is displayed. The script ensures that it returns to the original directory after processing each folder.
 
-This repository also contains several obj files for 3D printing small components used in the construction of RODI (see SI file provided along with our 2025 paper in Digital discovery for details)
+This repository also contains several obj files for 3D printing small components used in the construction of RODI and Arduino ino files for its operation (see SI file provided along with our 2025 paper in Digital discovery for details)
 
 
 Software Versions Used: MATLAB R2022a and R2023a; Python 3.8 with NumPy and XGBoost packages.
