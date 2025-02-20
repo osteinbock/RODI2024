@@ -4,20 +4,19 @@ clear all
 close all
 
 % Read the text file into a table
-file = 'allData_ZScored.txt';
+file = 'ZScoredData0to125.txt';
 data = readtable(file, 'Delimiter', '\t');
 
-% Extract the relevant columns (assuming the salts are in column 3 and concentrations in column 4, and metrics from column 10 to 56)
-salts = data{:, 3};
-concentrations = data{:, 4};
-metrics = data{:, 10:56};
+% Extract the relevant columns (assuming the salts are in column 3 and concentrations in column 4, and metrics from column 10 to column 58)
+sample = data{:, 2};
+metrics = data{:, 8:54};
 
 % Convert salts and concentrations to strings
-saltsStr = string(salts);
-concentrationsStr = string(concentrations);
+sampleStr = string(sample);
+
 
 % Combine salts and concentrations into a single categorical variable
-categories = strcat(saltsStr, '_', concentrationsStr);
+categories = sampleStr;
 
 % Initialize variables for multiple runs
 numRuns = 20;
@@ -114,10 +113,22 @@ stdDevAccuracy = std(accuracies);
 % Normalize the confusion matrix by the number of runs
 avgConfMat = allConfMat / numRuns;
 
+% Convert the unique hardness values to numerical values
+uniqueCategories_numeric = str2double(extractBefore(uniqueCategories, 'ppm'));
+
+% Sort the numerical values and get the sorted indices
+[~, sortIdx] = sort(uniqueCategories_numeric);
+
+% Use the sorting indices to reorder the original categorical labels
+uniqueCategories_sorted = uniqueCategories(sortIdx);
+
+% Convert the hardness labels to categorical with the specified order
+uniqueCategories_ordered = categorical(uniqueCategories_sorted, uniqueCategories_sorted, 'Ordinal', true);
+
 % Display the confusion matrix with labels
 figure;
 set(gcf, 'color', 'w'); % Set figure background to white
-confusionchart(round(avgConfMat), uniqueCategories,FontSize = 14);
+confusionchart(round(avgConfMat), uniqueCategories_ordered);
 % title('Average Confusion Matrix for 20 Runs');
 
 % Display mean accuracy and standard deviation
